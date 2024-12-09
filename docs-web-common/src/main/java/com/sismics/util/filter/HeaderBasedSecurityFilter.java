@@ -17,7 +17,7 @@ public class HeaderBasedSecurityFilter extends SecurityFilter {
     /**
      * Authentication header.
      */
-    public static final String AUTHENTICATED_USER_HEADER = "X-Authenticated-User";
+    public static final String AUTHENTICATED_USER_HEADER = "X-HC-User-ID";
 
     /**
      * True if this authentication method is enabled.
@@ -26,8 +26,7 @@ public class HeaderBasedSecurityFilter extends SecurityFilter {
 
     @Override
     public void init(FilterConfig filterConfig) {
-        enabled = Boolean.parseBoolean(filterConfig.getInitParameter("enabled"))
-                || Boolean.parseBoolean(System.getProperty("docs.header_authentication"));
+        enabled = true;
     }
 
     @Override
